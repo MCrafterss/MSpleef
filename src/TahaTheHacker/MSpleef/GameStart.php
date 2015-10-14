@@ -19,7 +19,7 @@ class GameStart extends PluginTask{
 
   public function onRun($tick){
     $this->plugin->ticks++;
-    if($this->plugin->ticks === 1){
+    if($this->plugin->ticks === 1 || $this->plugin->ticks === 2){
     	$level = $this->plugin->getServer()->getLevelByName($this->plugin->yml["spleef-world"]);
     for($x = $this->plugin->yml["spleef-Min-floor-X"]; $x <= $this->plugin->yml["spleef-Max-floor-X"]; $x++){ 
     for($y = $this->plugin->yml["spleef-Min-floor-Y"]; $y <= $this->plugin->yml["spleef-Max-floor-Y"]; $y++){
