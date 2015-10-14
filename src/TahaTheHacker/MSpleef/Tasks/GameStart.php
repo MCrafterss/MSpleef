@@ -13,7 +13,7 @@ class GameStart extends PluginTask{
 
   public function __construct(Main $plugin, $players){
     $this->plugin = $plugin;
-    $this->players = $players
+    $this->players = $players;
     parent::__construct($plugin);
   }
 
