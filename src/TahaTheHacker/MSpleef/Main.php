@@ -33,7 +33,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     public $reward;
     public $yml;
    //Game
-    public $gameStarted;
+    public $gameStarted = false;
 
   public function onEnable(){
      //Initializing config files
