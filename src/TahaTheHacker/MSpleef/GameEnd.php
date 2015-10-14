@@ -5,6 +5,7 @@ namespace TahaTheHacker\MSpleef;
 use pocketmine\scheduler\PluginTask;
 use pocketmine\item\item;
 use pocketmine\level\Position;
+use pocketmine\event\Event;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\level\Level;
 use pocketmine\math\Vector3;
