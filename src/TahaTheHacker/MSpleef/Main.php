@@ -40,7 +40,7 @@ use pocketmine\math\Vector3;
   
   public function GameStart(){
     $players = $this->getServer()->getOnlinePlayers();
-    $this->TaskID1 = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameStart($this), 20)->getTaskId();
+    $this->TaskID1 = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameStart($this, $players), 20)->getTaskId();
   }//GameSTart
 
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
