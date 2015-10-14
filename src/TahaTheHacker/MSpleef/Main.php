@@ -4,6 +4,7 @@ namespace TahaTheHacker\MSpleef;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\item\item;
+use pocketmine\event\Event;
 use pocketmine\level\Position;
 use pocketmine\event\Listener;
 use pocketmine\command\Command;
