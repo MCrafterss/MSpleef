@@ -10,6 +10,9 @@ use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\level\Level;
 use pocketmine\math\Vector3;
 use pocketmine\block\Block;
+use pocketmine\item\ItemBlock;
+use pocketmine\event\block\BlockEvent;
+use pocketmine\network\protocol\UpdateBlockPacket;
 
 class GameEnd extends PluginTask{
 
