@@ -8,6 +8,7 @@ use pocketmine\level\Position;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\level\Level;
 use pocketmine\math\Vector3;
+use pocketmine\block\Block;
 
 class GameStart extends PluginTask{
 
