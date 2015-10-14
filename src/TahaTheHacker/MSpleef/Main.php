@@ -38,7 +38,7 @@ use pocketmine\math\Vector3;
    		
   }//onEnable
   
-  public function GameStart(){
+  public function gameStart(){
     $players = $this->getServer()->getOnlinePlayers();
     $this->TaskID1 = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameStart($this, $players), 20)->getTaskId();
   }//GameSTart
@@ -46,7 +46,7 @@ use pocketmine\math\Vector3;
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
     switch($cmd->getName()){
       case "ms":
-      $this->GameStart();
+      $this->gameStart();
     }//switch1
 
   }//onCommand
