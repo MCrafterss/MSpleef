@@ -55,6 +55,10 @@ use pocketmine\math\Vector3;
       $this->getServer()->getScheduler()->cancelTask($this->TaskID1);
       
       }//switch2
+          if(count($args) < 1){
+        $sender->sendMessage("Use /ms <start/stop>");
+            return true;
+        }
     }//switch1
 
   }//onCommand
