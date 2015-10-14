@@ -28,7 +28,7 @@ class GameEnd extends PluginTask{
     for($x = $this->plugin->yml["spleef-Min-floor-X"]; $x <= $this->plugin->yml["spleef-Max-floor-X"]; $x++){
     for($y = $this->plugin->yml["spleef-Min-floor-Y"]; $y <= $this->plugin->yml["spleef-Max-floor-Y"]; $y++){
     for($z = $this->plugin->yml["spleef-Min-floor-Z"]; $z <= $this->plugin->yml["spleef-Max-floor-X"]; $z++){
-        $level->setBlock(new Vector3($x, $y, $z), Block::get($this->plugin->yml["spleef-floor-reset-block-ID"],$this->plugin->yml["spleef-floor-reset-block-damage"]));
+        $level->setBlock(new Vector3($x, $y, $z), Block::get(7,0));
       $this->plugin->getServer()->getScheduler()->cancelTask($this->plugin->gameStartTask);
     }
     }
