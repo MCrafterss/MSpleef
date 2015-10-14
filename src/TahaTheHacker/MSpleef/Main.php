@@ -46,21 +46,7 @@ use pocketmine\math\Vector3;
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
     switch($cmd->getName()){
       case "ms":
-      switch($args[0]){
-      case "start":
-
       $this->GameStart();
-
-      case "stop":
-      $this->getServer()->getScheduler()->cancelTask($this->TaskID1);
-      
-      }//switch2
-      return true;
-      break;
-          if(count($args) < 0){
-        $sender->sendMessage("Use /ms <start/stop>");
-            return true;
-        }
     }//switch1
 
   }//onCommand
