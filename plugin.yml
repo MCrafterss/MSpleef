@@ -5,3 +5,7 @@ main: TahaTheHacker\MSpleef\Main
 author: TahaTheHacker
 Helpers: []
 load: POSTWORLD
+commands:
+ ms:
+  description: "MSpleef Main Command"
+  usage: "/ms <sub-command>"
