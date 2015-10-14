@@ -14,8 +14,7 @@ use pocketmine\Server;
 use pocketmine\level\Level;
 use pocketmine\scheduler\ServerScheduler;
 use pocketmine\event\player\PlayerInteractEvent;
-use pocketmine\level\Level;
-use pocketmine\math\Vector3
+use pocketmine\math\Vector3;
 
   class Main extends PluginBase implements Listener {
 
