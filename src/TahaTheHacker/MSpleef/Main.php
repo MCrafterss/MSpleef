@@ -3,6 +3,8 @@
 namespace TahaTheHacker\MSpleef;
 
 use pocketmine\plugin\PluginBase;
+use pocketmine\utils\TextFormat;
+use pocketmine\utils\Config;
 use pocketmine\item\item;
 use pocketmine\event\Event;
 use pocketmine\level\Position;
@@ -24,39 +26,42 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
   class Main extends PluginBase implements Listener {
 
-  	public $gameStartTask;// i will use it
+    public $gameStartTask;// i will use it
     public $seconds = 0;//Yes
+   //Config files
+    public $items;
+    public $reward;
+    public $yml;
 
   public function onEnable(){
-       if(!file_exists($this->getDataFolder() . "config.yml") || !file_exists($this->getDataFolder() . "Items.yml") || !file_exists($this->getDataFolder() . "rewards.yml")) {
-      @mkdir($this->getDataFolder());
-      file_put_contents($this->getDataFolder() . "config.yml",$this->getResource("config.yml"));
-      file_put_contents($this->getDataFolder() . "Items.yml",$this->getResource("Items.yml"));
-      file_put_contents($this->getDataFolder() . "rewards.yml",$this->getResource("rewards.yml"));
-    }//!File_exists
-
-      $this->Items = yaml_parse(file_get_contents($this->getDataFolder() . "Items.yml"));
-      $this->reward = yaml_parse(file_get_contents($this->getDataFolder() . "rewards.yml"));
-      $this->yml = yaml_parse(file_get_contents($this->getDataFolder() . "config.yml"));
-
-   		$this->getServer()->getLogger()->debug("Config files have been saved!");
+     //Initializing config files
+      $this->saveDefaultConfig();
+      $this->saveResource("Items.yml");
+      $this->saveResource("rewards.yml");
+      $items = new Config($this->getDataFolder()."Items.yml",Config::YAML);
+      $this->items = $items->getAll();
+      $rewards = new Config($this->getDataFolder()."rewards.yml",Config::YAML);
+      $this->rewards = $rewards->getAll();
+      $yml = new Config($this->getDataFolder()."config.yml",Config::YAML);
+      $this->yml = $yml->getAll();
+	$this->getServer()->getLogger()->debug("Config files have been saved!");
 
    		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 
-   		$this->getServer()->getLogger()->info("§l§6M§bSpleef §aEnabled§c!");
+   		$this->getServer()->getLogger()->info(TextFormat::BOLD.TextFormat::GOLD."M".TextFormat::AQUA."Spleef ".TextFormat::GREEN."Enabled".TextFormat::RED."!");
    		
   }//onEnable
   
   public function gameStart(){
     $this->gameStarted = true;
     $level = $this->getServer()->getLevelByName($this->yml["spleef-world"]);
-    for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++):
-    for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++):
-    for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++):
-            $level->setBlock(new Vector3($x, $y, $z), Block::get($this->yml["spleef-floor-reset-block-ID"]));
-          endfor;
-          endfor;
-          endfor;
+    for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
+    for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
+    for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
+            $level->setBlock(new Vector3($x, $y, $z), Block::get($this->yml["spleef-floor-reset-block-ID"],$this->yml["spleef-floor-reset-block-damage"]));
+          }
+          }
+          }
           $this->gameStartTask = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameEnd($this), 20)->getTaskId();
           $this->getServer()->broadcastMessage("Spleef Game Started!");
   }//GameStart
