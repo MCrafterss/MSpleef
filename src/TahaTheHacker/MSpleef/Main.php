@@ -46,7 +46,7 @@ use pocketmine\math\Vector3;
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
     switch($cmd->getName()){
       case "ms":
-      switch($args[1]){
+      switch($args[0]){
       case "start":
 
       $this->GameStart();
