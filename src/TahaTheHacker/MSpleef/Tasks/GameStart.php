@@ -7,7 +7,7 @@ use pocketmine\item\item;
 use pocketmine\level\Position;
 use pocketmine\event\player\PlayerInteractEvent;
 use pocketmine\level\Level;
-use pocketmine\math\Vector3
+use pocketmine\math\Vector3;
 
 class GameStart extends PluginTask{
 
