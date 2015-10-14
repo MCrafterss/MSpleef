@@ -29,7 +29,7 @@ class GameEnd extends PluginTask{
       endfor;
       endfor;
       $this->plugin->gameStarted = false;
-      $this->getServer()->broadcastMessage("Spleef Game Ended!");
+      $this->plugin->getServer()->broadcastMessage("Spleef Game Ended!");
   }//If Seconds.
   }//onRun
 
