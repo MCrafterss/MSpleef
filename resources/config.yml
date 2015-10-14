@@ -1,12 +1,12 @@
 #MSpleef's default config.yml
 
 #the world where spleef starts
-spleef-world: "world"
+spleef-world: "lobby"
 
 #Min position for the spleef floor to reset (from)
-spleef-Min-floor-X: 22
-spleef-Min-floor-Y: 22
-spleef-Min-floor-Z: 22
+spleef-Min-floor-X: 45
+spleef-Min-floor-Y: 45
+spleef-Min-floor-Z: 45
 
 #Max position for the spleef floor to reset (to)
 spleef-Max-floor-X: 44
@@ -14,6 +14,8 @@ spleef-Max-floor-Y: 44
 spleef-Max-floor-Z: 44
 
 #the block id that the spleef floor will reset to
-spleef-floor-reset-block-ID: 
+spleef-floor-reset-block-ID: 1
+##To-Do things:
 
-#
+spleef-started-message: "Spleef Game Started!"
+...
