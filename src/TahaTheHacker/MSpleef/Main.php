@@ -88,7 +88,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
   
  public function onInteract(PlayerInteractEvent $event){
     if($event->getBlock()->getX() === $this->yml["spleef-start-block-X"] && $event->getBlock()->getY() === $this->yml["spleef-start-block-Y"] && $event->getBlock()->getZ() === $this->yml["spleef-start-block-Z"]){
-    	if($this->gameStarted = false){
+    	if($this->gameStarted === false){
     		$this->gameStart();
     	}
     }//if1
