@@ -24,7 +24,7 @@ class GameEnd extends PluginTask{
   public function onRun($tick){
 	$this->plugin->seconds++;
 	$level = $this->plugin->getServer()->getLevelByName($this->plugin->yml["spleef-world"]);
-    if($this->plugin->seconds === 120){
+    if($this->plugin->seconds === $this->plugin->yml["spleef-time"]){
     for($x = $this->plugin->yml["spleef-Min-floor-X"]; $x <= $this->plugin->yml["spleef-Max-floor-X"]; $x++){
     for($y = $this->plugin->yml["spleef-Min-floor-Y"]; $y <= $this->plugin->yml["spleef-Max-floor-Y"]; $y++){
     for($z = $this->plugin->yml["spleef-Min-floor-Z"]; $z <= $this->plugin->yml["spleef-Max-floor-X"]; $z++){
