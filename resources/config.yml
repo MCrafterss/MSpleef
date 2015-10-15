@@ -16,7 +16,9 @@ spleef-Max-floor-Z: 44
 #the block id that the spleef floor will reset to
 spleef-floor-reset-block-ID: 80
 spleef-floor-reset-block-damage: 0
-##To-Do things:
 
-spleef-started-message: "Spleef Game Started!"
+#position of the block that when a player touches the game starts
+spleef-start-block-X: 
+spleef-start-block-Y: 
+spleef-start-block-Z: 
 ...
