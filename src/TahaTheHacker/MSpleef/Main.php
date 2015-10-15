@@ -77,7 +77,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
       case "start":
       $this->gameStart();
       case "stop":
-      if($this->gameStarted = true){
+      if($this->gameStarted === true){
       $this->gameStarted = false;
     }//If
     }//switch 2
