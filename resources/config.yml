@@ -21,4 +21,7 @@ spleef-floor-reset-block-damage: 0
 spleef-start-block-X: 
 spleef-start-block-Y: 
 spleef-start-block-Z: 
+
+#the time of the spleef game in seconds
+spleef-time: 30
 ...
