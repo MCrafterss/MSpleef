@@ -37,15 +37,18 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
   public function onEnable(){
      //Initializing config files
+     
       $this->saveResource("config.yml");
       $this->saveResource("Items.yml");
       $this->saveResource("rewards.yml");
+      
       $items = new Config($this->getDataFolder() . "Items.yml", Config::YAML);
       $this->items = $items->getAll();
       $rewards = new Config($this->getDataFolder() . "rewards.yml", Config::YAML);
       $this->rewards = $rewards->getAll();
       $yml = new Config($this->getDataFolder() . "config.yml", Config::YAML);
       $this->yml = $yml->getAll();
+      
   $this->getServer()->getLogger()->debug("Config files have been saved!");
 
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
@@ -57,23 +60,29 @@ use pocketmine\network\protocol\UpdateBlockPacket;
   public function gameStart(){
     $this->gameStarted = true;
     $level = $this->getServer()->getLevelByName($this->yml["spleef-world"]);
+    
     for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
     for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
     for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
-          $level->setBlock(new Vector3($x, $y, $z), Block::get(0));//prevents from a client-side issue when breaking the snow it becomes the last block it changed. (bedrock) so then players won't fall.
+      
+            $level->setBlock(new Vector3($x, $y, $z), Block::get(0));//prevents from a client-side issue when breaking the snow it becomes the last block it changed. (bedrock) so then players won't fall.
             $level->setBlock(new Vector3($x, $y, $z), Block::get($this->yml["spleef-floor-reset-block-ID"],$this->yml["spleef-floor-reset-block-damage"]));
           }
           }
           }
           $this->gameEndTask = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameEnd($this), 20)->getTaskId();
-          $this->getServer()->broadcastMessage("Spleef Game Started!");
+          foreach($this->yml["spleef-start-messages"] as $msg){
+            
+          $this->getServer()->broadcastMessage($msg);
+          
+          }
   }//GameStart
 
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
     switch($cmd->getName()){
       case "ms":
       if (isset($args[0])){
-    switch($args[0]){
+    switch(strtolower($args[0])){
 
       case "start":
       $this->gameStart();
@@ -97,7 +106,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     if($event->getBlock()->getX() === $this->yml["spleef-start-block-X"] && $event->getBlock()->getY() === $this->yml["spleef-start-block-Y"] && $event->getBlock()->getZ() === $this->yml["spleef-start-block-Z"]){
       if($this->gameStarted === false){
         $this->gameStart();
-      }
+      } else { $event->getPlayer()->sendMessage("Spleef game already started!"); }
     }//if1
  }//onInteract
   }//Main
