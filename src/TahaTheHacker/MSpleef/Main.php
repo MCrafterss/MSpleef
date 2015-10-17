@@ -25,13 +25,16 @@ use pocketmine\event\block\BlockEvent;
 use pocketmine\network\protocol\UpdateBlockPacket;
 
   class Main extends PluginBase implements Listener {
-
+   //Tasks
     public $gameEndTask;// i will use it
     public $seconds = 0;//Yes
+    
    //Config files
     public $items;
     public $reward;
     public $yml;
+    public $level;
+    
    //Game
     public $gameStarted = false;
 
@@ -59,11 +62,12 @@ use pocketmine\network\protocol\UpdateBlockPacket;
   
   public function gameStart(){
     $this->gameStarted = true;
+    $this->level = $this->getServer()->getLevelByName($this->yml["spleef-world"]);
     $level = $this->getServer()->getLevelByName($this->yml["spleef-world"]);
     
-    for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
-    for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
-    for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
+      for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
+      for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
+      for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
       
             $level->setBlock(new Vector3($x, $y, $z), Block::get(0));//prevents from a client-side issue when breaking the snow it becomes the last block it changed. (bedrock) so then players won't fall.
             $level->setBlock(new Vector3($x, $y, $z), Block::get($this->yml["spleef-floor-reset-block-ID"],$this->yml["spleef-floor-reset-block-damage"]));
@@ -71,6 +75,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
           }
           }
           $this->gameEndTask = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameEnd($this), 20)->getTaskId();
+          
           foreach($this->yml["spleef-start-messages"] as $msg){
             
           $this->getServer()->broadcastMessage($msg);
@@ -91,13 +96,21 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
       case "stop":
       if($this->gameStarted === true){
+        for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
+        for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
+        for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
+          $this>level->setBlock(new Vector3($x, $y, $z), Block::get(7));
+          $this->getServer()->broadcastMessage("Spleef Game Ended!");
+        }
+        }
+        }
       $this->gameStarted = false;
     }//If
     return true;
     break;
     
     }//switch 2
-      }//isset
+      } else { $sender->sendMessage("Usage: /ms <start/stop>"); }//isset
     }//switch1
 
   }//onCommand
