@@ -43,7 +43,6 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     public $gameStarted = false;
 
   public function onEnable(){
-     $level = $this->yml["spleef-world"];
      //Initializing config files
      
       $this->saveResource("config.yml");
@@ -60,6 +59,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
   $this->getLogger()->debug("Config files have been saved!");
 
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
+    $level = $this->yml["spleef-world"];
     if(!$this->getServer()->isLevelGenerated($level)){
       $this->getLogger()->error("The level you used on the config doesn't exist! stopping plugin or crash..");
       $this->getServer()->getPluginManager()->disablePlugin($this->getServer()->getPluginManager()->getPlugin("MSpleef"));
