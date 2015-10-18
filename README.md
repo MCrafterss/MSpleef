@@ -12,7 +12,6 @@ This Plugin is a free Spleef Minigame that has a few features till now and we're
 - Customizable Spleef Ending time
 - Lets you build your custom spleef arena
 - Permissions
-- 
 
 ###To-Do :
 
