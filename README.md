@@ -27,7 +27,7 @@ This Plugin is a free Spleef Minigame that has a few features till now and we're
 - touch the block as you specificated in Config.yml
 - the game starts, now you find players next to you, and block under you changed
 - Now start breaking the blocks with tricky ways so the player fall on it.
-- when you fall, that means you lost the game :(
+- when you fall, that means you lost the game :sad:
 - and like that.. fun :^D
 
 ###Commands && Permissions :
