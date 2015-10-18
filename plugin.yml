@@ -8,3 +8,17 @@ commands:
  ms:
   description: "MSpleef Main Command"
   usage: "/ms <start/stop>"
+permissions:
+ ms.command:
+  description: "Allow full access to MSpleef commands"
+  default: op
+  children:
+   ms.command.start:
+    description: "Allow executing /ms start"
+    default: true
+   ms.command.stop:
+    description: "Allow executing /ms stop"
+    default: op
+   ms.command.reload:
+    description: "Allow executing /ms reload"
+    default: op
