@@ -35,8 +35,6 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     public $seconds = 0;//Yes
     
    //Config files
-    public $items;
-    public $reward;
     public $yml;
     public $level;
    //Game
@@ -46,13 +44,13 @@ use pocketmine\network\protocol\UpdateBlockPacket;
      //Initializing config files
      
       $this->saveResource("config.yml");
-      $this->saveResource("Items.yml");
-      $this->saveResource("rewards.yml");
+      //$this->saveResource("Items.yml");
+      //$this->saveResource("rewards.yml");
       
-      $items = new Config($this->getDataFolder() . "Items.yml", Config::YAML);
-      $this->items = $items->getAll();
-      $rewards = new Config($this->getDataFolder() . "rewards.yml", Config::YAML);
-      $this->rewards = $rewards->getAll();
+      //$items = new Config($this->getDataFolder() . "Items.yml", Config::YAML);
+      //$this->items = $items->getAll();
+      //$rewards = new Config($this->getDataFolder() . "rewards.yml", Config::YAML);
+      //$this->rewards = $rewards->getAll();
       $yml = new Config($this->getDataFolder() . "config.yml", Config::YAML);
       $this->yml = $yml->getAll();
       
@@ -61,7 +59,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
     $level = $this->yml["spleef-world"];
     if(!$this->getServer()->isLevelGenerated($level)){
-      $this->getLogger()->error("The level you used on the config doesn't exist! stopping plugin or crash..");
+      $this->getLogger()->error("The level you used on the config ( " . $level . " ) doesn't exist! stopping plugin or crash..");
       $this->getServer()->getPluginManager()->disablePlugin($this->getServer()->getPluginManager()->getPlugin("MSpleef"));
     }
     
@@ -100,21 +98,27 @@ use pocketmine\network\protocol\UpdateBlockPacket;
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
     switch($cmd->getName()){
       case "ms":
+        if($sender->hasPermission("ms.command")){
       if (isset($args[0])){
     switch(strtolower($args[0])){
 
       case "start":
+        if($sender->hasPermission("ms.command.start")){
       $this->gameStart();
       return true;
       break;
+        }
 
       case "stop":
+        if($sender->hasPermission("ms.command.stop")){
       if($this->gameStarted == true){
         for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
         for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
         for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
           $this->level->setBlock(new Vector3($x, $y, $z), Block::get(7));
-          $this->getServer()->broadcastMessage("Spleef Game Ended!");
+            foreach($this->yml["spleef-end-messages"] as $msg){
+          $this->getServer()->broadcastMessage($Msg);
+            }
         }
         }
         }
@@ -122,39 +126,27 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     }//If
     return true;
     break;
+        }
       case "reload":
+        if($sender->hasPermission("ms.command.reload")){
       $plugin = $this->getServer()->getPluginManager()->getPlugin("MSpleef");
       $this->getServer()->getPluginManager()->disablePlugin($plugin);
       $this->getServer()->getPluginManager()->enablePlugin($plugin);
       return true;
       break;
+        }
     
     }//switch 2
-      } else { $sender->sendMessage("Usage: /ms <start/stop>"); }//isset
+      }//isset
     }//switch1
-
+}
   }//onCommand
   
  public function gameStartButton(PlayerInteractEvent $event){
     if($event->getBlock()->getX() === $this->yml["spleef-start-block-X"] && $event->getBlock()->getY() === $this->yml["spleef-start-block-Y"] && $event->getBlock()->getZ() === $this->yml["spleef-start-block-Z"]){
       if($this->gameStarted === false){
         $this->gameStart();
-      } else { $event->getPlayer()->sendMessage("Spleef game already started!"); }
+      } else { $event->getPlayer()->sendMessage($this->yml["spleef-already-started-message"]); }
     }//if1
  }//gameStartButton
-
- public function spleefItems(PlayerMoveEvent $event){
-  $player = $event->getPlayer();
-    foreach($this->items["Items"] as $i){
-      for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
-      for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
-      for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
-   if(round($event->getFrom()->getX()) == round($x) && round($event->getFrom()->getY())-1 == round($y) && round($event->getFrom()->getZ()) == round($z)){
-    $player->getInventory()->addItem(Item::get($i["id"], $i["damage"]));
-    } elseif(round($event->getFrom()->getX()) == $x && round($event->getFrom()->getY())-2 == $y && round($event->getFrom()->getZ()) == $z){ $player->getInventory()->addItem(Item::get($i["id"], $i["damage"])); } else { $player->getInventory()->removeItem(Item::get($i["id"], $i["damage"])); }//if
-  }//3
-  }//2
-  }//1
-  }//foreach
- }//spleefItems
   }//Main
