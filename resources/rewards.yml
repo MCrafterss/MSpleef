@@ -1,5 +1,0 @@
-#item rewards by IDs that will be given to the players who win.
-rewards:
- - id: 264
-   damage: 0
- - id: 1 
