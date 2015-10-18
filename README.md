@@ -39,6 +39,7 @@ This Plugin is a free Spleef Minigame that has a few features till now and we're
 ###Credits To :
 
 Taha_The_Hacker - Main Developer
+
 kvetinac97 - cleaned up code, faster!
 
 Thanks :smile:
