@@ -43,7 +43,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     public $gameStarted = false;
 
   public function onEnable(){
-     $level = $this->getServer()->getLevelByName($this->yml["spleef-world"]);
+     $level = $this->yml["spleef-world"];
      //Initializing config files
      
       $this->saveResource("config.yml");
