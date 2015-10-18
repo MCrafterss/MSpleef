@@ -1,8 +1,11 @@
-#MSpleef's default config.yml
+
+---
+
+#MSpleef's default config
 
 #the world where spleef starts
 spleef-world: "lobby"
-
+#Min position for the spleef floor to reset (from)
 spleef-Min-floor-X: 121.5927
 spleef-Min-floor-Y: 65
 spleef-Min-floor-Z: 121.6457
@@ -21,13 +24,21 @@ spleef-start-block-X: 128
 spleef-start-block-Y: 67
 spleef-start-block-Z: 120
 
-#the time of the spleef game in seconds
+#the time of the spleef gam
+e in seconds
 spleef-time: 60
+ #message will be sent to the player when he tries to start the game when it's already started
+spleef-already-started-message: "Spleef game already started!"
 
-#messages will be sent when the game is started
+#messages will be broadcasted when the game is started
 spleef-start-messages:
  - "-------------"
  - "Spleef game has started!"
  - "-------------"
- 
+ #messages will be broadcasted when the game ends
+spleef-end-messages:
+ - "-------------"
+ - "Spleef Game Ended!"
+ - "-------------"
+
 ...
