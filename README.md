@@ -32,14 +32,13 @@ This Plugin is a free Spleef Minigame that has a few features till now and we're
 
 ###Commands && Permissions :
 
-/ms start - starts the Spleef game - ms.command.start default true
-/ms stop - stops the spleef game - ms.command.stop default OP
-/ms reload - reloads the plugin - ms.command.reload default OP
+- /ms start - starts the Spleef game - ms.command.start default true
+- /ms stop - stops the spleef game - ms.command.stop default OP
+- /ms reload - reloads the plugin - ms.command.reload default OP
 
 ###Credits To :
 
-Taha_The_Hacker - Main Developer
-
-kvetinac97 - cleaned up code, faster!
+- Taha_The_Hacker - Main Developer
+- kvetinac97 - cleaned up code, faster!
 
 Thanks :smile:
