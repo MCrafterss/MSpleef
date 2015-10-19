@@ -45,4 +45,4 @@
 - Taha_The_Hacker - Main Developer
 - kvetinac97 - cleaned up code, bug fixes!
 
-###Play Fairly ,and have fun! :)
+###Play Fairly ,and have fun! :smile:
