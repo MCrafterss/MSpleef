@@ -31,7 +31,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     class Main extends PluginBase implements Listener {
 
    //Tasks
-    protected $gameEndTask;// i will use it
+    public $gameEndTask;// i will use it
     public $seconds = 0;//Lol
     
    //Config files
