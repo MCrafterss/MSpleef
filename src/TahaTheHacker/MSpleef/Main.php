@@ -28,17 +28,23 @@ use pocketmine\event\block\BlockEvent;
 use pocketmine\network\protocol\UpdateBlockPacket;
 
 
-  class Main extends PluginBase implements Listener {
+    class Main extends PluginBase implements Listener {
 
    //Tasks
-    public $gameEndTask;// i will use it
-    public $seconds = 0;//Yes
+    protected $gameEndTask;// i will use it
+    protected $seconds = 0;//Lol
     
    //Config files
-    public $yml;
+    protected $yml;
     public $level;
    //Game
-    public $gameStarted = false;
+    protected $gameStarted = false;
+
+    const MSPLEEF_GAME_START = $this->gameStart();
+
+    const MSPLEEF_SET_STARTED = $this->gameStarted = true;
+    
+    const MSPLEEF_SET_STOPPED = $this->gameStarted = false;
 
   public function onEnable(){
      //Initializing config files
