@@ -32,13 +32,13 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
    //Tasks
     protected $gameEndTask;// i will use it
-    protected $seconds = 0;//Lol
+    public $seconds = 0;//Lol
     
    //Config files
-    protected $yml;
+    public $yml;
     public $level;
    //Game
-    protected $gameStarted = false;
+    public $gameStarted = false;
 
     const MSPLEEF_TIME = 0;
 
