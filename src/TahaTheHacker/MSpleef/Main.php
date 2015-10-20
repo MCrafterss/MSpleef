@@ -40,11 +40,8 @@ use pocketmine\network\protocol\UpdateBlockPacket;
    //Game
     protected $gameStarted = false;
 
-    const MSPLEEF_GAME_START = $this->gameStart();
+    const MSPLEEF_TIME = 0;
 
-    const MSPLEEF_SET_STARTED = $this->gameStarted = true;
-    
-    const MSPLEEF_SET_STOPPED = $this->gameStarted = false;
 
   public function onEnable(){
      //Initializing config files
