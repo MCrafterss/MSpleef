@@ -37,7 +37,7 @@ class GameEnd extends PluginTask{
     }
     }
       $this->plugin->gameStarted = false;
-      $this->plugin->seconds = 0;
+      $this->plugin->seconds = Main::MSPLEEF_TIME;
       $this->plugin->getServer()->broadcastMessage("Spleef Game Ended!");
       $this->plugin->getServer()->getScheduler()->cancelTask($this->plugin->gameEndTask);
 
