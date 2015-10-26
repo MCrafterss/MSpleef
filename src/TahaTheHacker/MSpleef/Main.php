@@ -40,7 +40,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
    //Game
     public $gameStarted = false;
 
-    const MSPLEEF_TIME = 0;
+    const GAME_TYPE = 0;
 
 
   public function onEnable(){
@@ -52,17 +52,23 @@ use pocketmine\network\protocol\UpdateBlockPacket;
       
       //$items = new Config($this->getDataFolder() . "Items.yml", Config::YAML);
       //$this->items = $items->getAll();
+
       //$rewards = new Config($this->getDataFolder() . "rewards.yml", Config::YAML);
       //$this->rewards = $rewards->getAll();
+
       $yml = new Config($this->getDataFolder() . "config.yml", Config::YAML);
       $this->yml = $yml->getAll();
       
   $this->getLogger()->debug("Config files have been saved!");
 
       $this->getServer()->getPluginManager()->registerEvents($this, $this);
+
     $level = $this->yml["spleef-world"];
+    
     if(!$this->getServer()->isLevelGenerated($level)){
+
       $this->getLogger()->error("The level you used on the config ( " . $level . " ) doesn't exist! stopping plugin or crash..");
+
       $this->getServer()->getPluginManager()->disablePlugin($this->getServer()->getPluginManager()->getPlugin("MSpleef"));
     }
     
@@ -88,7 +94,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
           }
           }
           }
-          $this->gameEndTask = $this->getServer()->getScheduler()->scheduleRepeatingTask(new GameEnd($this), 20)->getTaskId();
+          
           
           foreach($this->yml["spleef-start-messages"] as $msg){
             
@@ -96,6 +102,22 @@ use pocketmine\network\protocol\UpdateBlockPacket;
           
           }
         $this->gameStarted = true;
+
+        sleep($this->yml["spleef-time"]);
+
+    for($x = $this->plugin->yml["spleef-Min-floor-X"]; $x <= $this->plugin->yml["spleef-Max-floor-X"]; $x++){
+    for($y = $this->plugin->yml["spleef-Min-floor-Y"]; $y <= $this->plugin->yml["spleef-Max-floor-Y"]; $y++){
+    for($z = $this->plugin->yml["spleef-Min-floor-Z"]; $z <= $this->plugin->yml["spleef-Max-floor-X"]; $z++){
+
+        $level->setBlock(new Vector3($x, $y, $z), Block::get(7,0));
+
+    }
+    }
+    }
+      $this->plugin->gameStarted = false;
+      foreach($this->yml["spleef-end-messages"] as $msg){
+      $this->plugin->getServer()->broadcastMessage($msg);
+  }
   }//GameStart
 
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
