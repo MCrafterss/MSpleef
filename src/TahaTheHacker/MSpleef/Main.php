@@ -105,9 +105,9 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
         sleep($this->yml["spleef-time"]);
 
-    for($x = $this->plugin->yml["spleef-Min-floor-X"]; $x <= $this->plugin->yml["spleef-Max-floor-X"]; $x++){
-    for($y = $this->plugin->yml["spleef-Min-floor-Y"]; $y <= $this->plugin->yml["spleef-Max-floor-Y"]; $y++){
-    for($z = $this->plugin->yml["spleef-Min-floor-Z"]; $z <= $this->plugin->yml["spleef-Max-floor-X"]; $z++){
+    for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
+    for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
+    for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
 
         $level->setBlock(new Vector3($x, $y, $z), Block::get(7,0));
 
@@ -116,7 +116,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     }
       $this->plugin->gameStarted = false;
       foreach($this->yml["spleef-end-messages"] as $msg){
-      $this->plugin->getServer()->broadcastMessage($msg);
+      $this->getServer()->broadcastMessage($msg);
   }
   }//GameStart
 
