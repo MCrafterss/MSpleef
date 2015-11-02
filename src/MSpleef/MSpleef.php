@@ -156,6 +156,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
       $plugin = $this->getServer()->getPluginManager()->getPlugin("MSpleef");
       $this->getServer()->getPluginManager()->disablePlugin($plugin);
       $this->getServer()->getPluginManager()->enablePlugin($plugin);
+      $sender->sendMessage("Plugin Reloaded!");
       return true;
       break;
         }
@@ -170,7 +171,10 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     if($event->getBlock()->getX() === $this->yml["spleef-start-block-X"] && $event->getBlock()->getY() === $this->yml["spleef-start-block-Y"] && $event->getBlock()->getZ() === $this->yml["spleef-start-block-Z"]){
       if($this->gameStarted === false){
         $this->gameStart();
-      } else { $event->getPlayer()->sendMessage($this->yml["spleef-already-started-message"]); }
+      } else {
+          $event->getPlayer()->sendMessage($this->yml["spleef-already-started-message"]); 
+          
+      }
     }//if1
  }//gameStartButton
   }//Main
