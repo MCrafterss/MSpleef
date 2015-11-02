@@ -1,8 +1,8 @@
 name: MSpleef
-version: 1.0.0 Beta
+version: 3.5 Beta
 api: [1.12.0]
-main: TahaTheHacker\MSpleef\Main
-author: TahaTheHacker
+main: MSpleef\MSpleef
+author: MCrafters
 load: POSTWORLD
 commands:
  ms:
