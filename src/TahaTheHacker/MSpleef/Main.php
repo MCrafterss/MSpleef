@@ -1,6 +1,6 @@
 <?php
 
-namespace TahaTheHacker\MSpleef;
+namespace MSpleef;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat as Color;
