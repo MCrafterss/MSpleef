@@ -1,5 +1,5 @@
 #|| MSpleef ||
-###An Awesome Spleef Plugin!​
+###Breaking blocks to fall down player is fun!​
 
 ##About :
 ​
