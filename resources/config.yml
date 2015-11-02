@@ -24,7 +24,7 @@ spleef-start-block-Y: 67
 spleef-start-block-Z: 120
 
 #the time of the spleef game in seconds
-spleef-time: 60
+spleef-time: 120
  #message will be sent to the player when he tries to start the game when it's already started
 spleef-already-started-message: "Spleef game already started!"
 
