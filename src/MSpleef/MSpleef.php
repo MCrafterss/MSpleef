@@ -28,7 +28,7 @@ use pocketmine\event\block\BlockEvent;
 use pocketmine\network\protocol\UpdateBlockPacket;
 
 
-    class Main extends PluginBase implements Listener {
+    class MSpleef extends PluginBase implements Listener {
 
    //Tasks
     public $gameEndTask;// i will use it
