@@ -1,6 +1,6 @@
 <?php
 
-namespace MSpleef;
+namespace TahaTheHacker\MSpleef;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\utils\TextFormat as Color;
@@ -30,9 +30,6 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
     class MSpleef extends PluginBase implements Listener {
 
-   //Tasks
-    public $gameEndTask;// i will use it
-    public $seconds = 0;//Lol
     
    //Config files
     public $yml;
@@ -40,21 +37,21 @@ use pocketmine\network\protocol\UpdateBlockPacket;
    //Game
     public $gameStarted = false;
 
-    const GAME_TYPE = 0;
+    const GAME_STARTED = 'Started';//To-Do
 
 
   public function onEnable(){
      //Initializing config files
      
       $this->saveResource("config.yml");
-      //$this->saveResource("Items.yml");
-      //$this->saveResource("rewards.yml");
+      //To-Do $this->saveResource("Items.yml");
+      //To-Do $this->saveResource("rewards.yml");
       
-      //$items = new Config($this->getDataFolder() . "Items.yml", Config::YAML);
-      //$this->items = $items->getAll();
+      //To-Do $items = new Config($this->getDataFolder() . "Items.yml", Config::YAML);
+      //To-Do $this->items = $items->getAll();
 
-      //$rewards = new Config($this->getDataFolder() . "rewards.yml", Config::YAML);
-      //$this->rewards = $rewards->getAll();
+      //To-Do $rewards = new Config($this->getDataFolder() . "rewards.yml", Config::YAML);
+      //To-Do $this->rewards = $rewards->getAll();
 
       $yml = new Config($this->getDataFolder() . "config.yml", Config::YAML);
       $this->yml = $yml->getAll();
@@ -67,7 +64,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     
     if(!$this->getServer()->isLevelGenerated($level)){
 
-      $this->getLogger()->error("The level you used on the config ( " . $level . " ) doesn't exist! stopping plugin or crash..");
+      $this->getLogger()->error("The level you used on the config ( " . $level . " ) doesn't exist! stopping plugin...");
 
       $this->getServer()->getPluginManager()->disablePlugin($this->getServer()->getPluginManager()->getPlugin("MSpleef"));
     }
@@ -116,7 +113,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     }
       $this->plugin->gameStarted = false;
       foreach($this->yml["spleef-end-messages"] as $msg){
-      $this->getServer()->broadcastMessage($msg);
+      $this->plugin->getServer()->broadcastMessage($msg);
   }
   }//GameStart
 
@@ -140,7 +137,9 @@ use pocketmine\network\protocol\UpdateBlockPacket;
         for($x = $this->yml["spleef-Min-floor-X"]; $x <= $this->yml["spleef-Max-floor-X"]; $x++){
         for($y = $this->yml["spleef-Min-floor-Y"]; $y <= $this->yml["spleef-Max-floor-Y"]; $y++){
         for($z = $this->yml["spleef-Min-floor-Z"]; $z <= $this->yml["spleef-Max-floor-X"]; $z++){
+
           $this->level->setBlock(new Vector3($x, $y, $z), Block::get(7));
+
             foreach($this->yml["spleef-end-messages"] as $msg){
           $this->getServer()->broadcastMessage($Msg);
             }
