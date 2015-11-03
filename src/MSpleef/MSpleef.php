@@ -111,9 +111,9 @@ use pocketmine\network\protocol\UpdateBlockPacket;
     }
     }
     }
-      $this->plugin->gameStarted = false;
+      $this->gameStarted = false;
       foreach($this->yml["spleef-end-messages"] as $msg){
-      $this->plugin->getServer()->broadcastMessage($msg);
+      $this->getServer()->broadcastMessage($msg);
   }
   }//GameStart
 
