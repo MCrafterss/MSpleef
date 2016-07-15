@@ -45,7 +45,7 @@
 
 ##Credits To :
 
-- Taha_The_Hacker - Main Developer
+- Pocketkiller - Main Developer
 - kvetinac97 - cleaned up code, bug fixes!
 
 ###Play Fairly ,and have fun! :smile:
