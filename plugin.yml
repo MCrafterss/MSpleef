@@ -5,20 +5,20 @@ main: MSpleef\MSpleef
 author: MCrafters
 load: POSTWORLD
 commands:
- ms:
+ spleef:
   description: "MSpleef Main Command"
-  usage: "/ms <start/stop>"
+  usage: "/spleef <start/stop>"
 permissions:
  ms.command:
   description: "Allow full access to MSpleef commands"
   default: op
   children:
    ms.command.start:
-    description: "Allow executing /ms start"
+    description: "Allow executing /spleef start"
     default: true
    ms.command.stop:
-    description: "Allow executing /ms stop"
+    description: "Allow executing /spleef stop"
     default: op
    ms.command.reload:
-    description: "Allow executing /ms reload"
+    description: "Allow executing /spleef reload"
     default: op
