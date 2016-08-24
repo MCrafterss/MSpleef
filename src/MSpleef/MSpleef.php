@@ -119,7 +119,7 @@ use pocketmine\network\protocol\UpdateBlockPacket;
 
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
     switch($cmd->getName()){
-      case "ms":
+      case "spleef":
         if($sender->hasPermission("ms.command")){
       if (isset($args[0])){
     switch(strtolower($args[0])){
