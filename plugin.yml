@@ -1,6 +1,6 @@
 name: MSpleef
 version: 3.5 Beta
-api: [1.12.0]
+api: [1.12.0, 2.0.0]
 main: MSpleef\MSpleef
 author: MCrafters
 load: POSTWORLD
