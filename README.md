@@ -39,9 +39,9 @@
 
 ##Commands && Permissions :
 
-- /ms start - starts the Spleef game - ms.command.start default true
-- /ms stop - stops the spleef game - ms.command.stop default OP
-- /ms reload - reloads the plugin - ms.command.reload default OP
+- /spleef start - starts the Spleef game - ms.command.start default true
+- /spleef stop - stops the spleef game - ms.command.stop default OP
+- /spleef reload - reloads the plugin - ms.command.reload default OP
 
 ##Credits To :
 
