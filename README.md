@@ -12,7 +12,7 @@
 
 - Auto Floor Resetter
 - Customizable block to reset on the floor
-- Customizable Place of spleef block when touches spleef game starts( or /ms start)
+- Customizable Place of spleef block when touches spleef game starts( or /spleef start)
 - Customizable Spleef started message
 - Customizable Spleef Ending time
 - Lets you build your custom spleef arena
@@ -30,7 +30,7 @@
 
 ##How To Play :
 
-- touch the block as you specificated in Config.yml ( or type /ms start)
+- touch the block as you specificated in Config.yml ( or type /spleef start)
 - the game starts, now you find players next to you, and block under you changed
 - Now start breaking the blocks with tricky ways so the player fall on it.
 - keep on like that! so other players fall and lose!
