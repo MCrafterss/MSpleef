@@ -1,24 +1,24 @@
 name: MSpleef
 version: 3.5 Beta
-api: [1.12.0, 2.0.0]
+api: 2.0.0
 main: MSpleef\MSpleef
 author: MCrafters
 load: POSTWORLD
 commands:
- spleef:
-  description: "MSpleef Main Command"
-  usage: "/spleef <start/stop>"
+    spleef:
+        description: "MSpleef Main Command"
+        usage: "/spleef <start|stop>"
 permissions:
- ms.command:
-  description: "Allow full access to MSpleef commands"
-  default: op
-  children:
-   ms.command.start:
-    description: "Allow executing /spleef start"
-    default: true
-   ms.command.stop:
-    description: "Allow executing /spleef stop"
-    default: op
-   ms.command.reload:
-    description: "Allow executing /spleef reload"
-    default: op
+    ms.command:
+        description: "Allow full access to MSpleef commands"
+        default: op
+    children:
+    ms.command.start:
+        description: "Allow executing /spleef start"
+        default: true
+    ms.command.stop:
+        description: "Allow executing /spleef stop"
+        default: op
+    ms.command.reload:
+        description: "Allow executing /spleef reload"
+        default: op
