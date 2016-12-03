@@ -15,7 +15,7 @@
 - Customizable Place of spleef block when touches spleef game starts( or /spleef start)
 - Customizable Spleef started message
 - Customizable Spleef Ending time
-- Build your Custom Spleed Arena
+- Build your Custom Spleef Arena
 - Permissions
 
 ##To-Do :
@@ -35,7 +35,7 @@
 - Now start breaking the blocks with tricky ways so the player fall on it.
 - keep on like that! so other players fall and lose!
 - when you fall, that means you lost the game :(
-- and like that.. fun :D
+- and like that... fun :D
 
 ##Commands && Permissions :
 
