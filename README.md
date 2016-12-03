@@ -2,7 +2,7 @@
 
 [![Gitter](https://badges.gitter.im/MCrafterss/MSpleef.svg)](https://gitter.im/MCrafterss/MSpleef?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
-###Breaking blocks to fall down player is fun!​
+###Break blocks under other players to win!
 
 ##About :
 ​
@@ -15,7 +15,7 @@
 - Customizable Place of spleef block when touches spleef game starts( or /spleef start)
 - Customizable Spleef started message
 - Customizable Spleef Ending time
-- Lets you build your custom spleef arena
+- Build your Custom Spleed Arena
 - Permissions
 
 ##To-Do :
@@ -39,9 +39,9 @@
 
 ##Commands && Permissions :
 
-- /spleef start - starts the Spleef game - ms.command.start default true
-- /spleef stop - stops the spleef game - ms.command.stop default OP
-- /spleef reload - reloads the plugin - ms.command.reload default OP
+- /spleef start - starts the Spleef game - ms.command.start default: true
+- /spleef stop - stops the spleef game - ms.command.stop default: OP
+- /spleef reload - reloads the plugin - ms.command.reload default: OP
 
 ##Credits To :
 
