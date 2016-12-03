@@ -32,7 +32,7 @@ spleef-already-started-message: "Spleef game already started!"
 #messages will be broadcasted when the game is started
 spleef-start-messages:
  - "-------------"
- - "Spleef game has started!"
+ - "Spleef game has been started!"
  - "-------------"
  #messages will be broadcasted when the game ends
 spleef-end-messages:
